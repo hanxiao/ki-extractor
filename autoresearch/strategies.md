@@ -80,7 +80,23 @@ UD-tuned Q3_K_XL. **Q3_K_XL is the speed-optimal quality-preserving quant.**
 **Converged optimum: Q3_K_XL + `--spec-draft-n-max 3 --spec-draft-p-min 0.1`
 = 75.9 t/s, +34%, zero quality loss.** Decode is bandwidth-bound at a fixed
 ~33% efficiency; quant bit-width is the only quality-safe knob and ~3.5bpw
-k-quant is the floor. Remaining probe: JSON-schema grammar CPU overhead.
+k-quant is the floor.
+
+- **JSON-schema grammar overhead (batch10): null.** Q3 no-schema 75.7 vs schema
+  75.4 (within noise). The grammar mask is ~free at decode time, and it
+  guarantees valid JSON -> keep it.
+
+## SEARCH CONVERGED (rounds 1+2, ~30 experiments)
+
+Quality-safe decode-rate levers are exhausted within the llama.cpp+MTP stack:
+- WIN: Q3_K_XL quant (+34%) x MTP n3+p-min0.1 (+2%). Combined **56.5 -> 75.9 t/s**.
+- Inert: KV quant, ctx size, ubatch, schema grammar, MXFP4.
+- Harmful: --parallel (-10%, bandwidth split), mixed-KV (-57%), MTP n>=4.
+- Quality-breaking (rejected): IQ3_XXS (-KIs), IQ3_S/Q2 (-grounding), sub-3.5bpw.
+- Dead ends: n-gram drafting (MTP wins), Q3_K_M (slower than UD-Q3_K_XL).
+Decode is bandwidth-bound at a hardware ~33% efficiency (format-independent).
+Beyond this needs a quality tradeoff or a different engine (FP8 tensor cores +
+grammar jump-forward, e.g. SGLang/vLLM) -- out of scope for the llama.cpp+MTP repo.
 
 ## WINNER (round 1, 5-repeat confirmed)
 

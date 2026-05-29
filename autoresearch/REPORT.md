@@ -14,6 +14,14 @@ coverage and groundedness all preserved.
 | IQ3_XXS @ win (rejected) | 78.41 ± 0.84 | +38.4% | 15.4 ⚠ | 0.952 | 0.57 |
 
 Combined with the round-1 MTP tuning, total is **56.46 → 75.9 tok/s, +34%**.
+
+After ~30 experiments the quality-safe frontier is fully mapped and converged:
+the only levers that move decode rate without quality loss are bit-width
+(Q4→Q3_K_XL, +34%) and the MTP flags (+2%). Everything else is inert (KV quant,
+ctx, schema grammar, MXFP4), harmful (parallelism −10%, mixed-KV −57%), or
+quality-breaking (sub-3.5bpw, i-quants). Decode is bandwidth-bound at a fixed
+~33% efficiency, so going further needs a quality tradeoff or a different engine
+(FP8 + grammar jump-forward) — outside the llama.cpp+MTP repo.
 - **Quality preserved:** Q3's KI count (22.8 ≈ 22.6), groundedness (0.67 ≥ 0.61),
   and coverage (cov_min 0.952 == baseline's own cross-seed self-coverage) match
   baseline; a manual fact spot-check confirmed correct, verbatim-grounded facts.
