@@ -1,0 +1,141 @@
+=== cross-coverage (row recalled-by col, info_text @0.80) ===
+              A_prose  B_schema_only       C_hybrid
+      A_prose          1.00           0.95           1.00
+B_schema_only          0.91           1.00           0.95
+     C_hybrid          0.96           1.00           1.00
+
+##### A_prose unique facts (n=23) #####
+[1] Florian Hönicke is the author of the jina-embeddings-v5-omni paper.
+     Florian Hönicke -> authored_work -> jina-embeddings-v5-omni paper
+[2] jina-embeddings-v5-omni-small has 1.56B parameters.
+     jina-embeddings-v5-omni-small -> has_parameter_count -> 1.56B
+[3] jina-embeddings-v5-omni-nano has 1.04B parameters.
+     jina-embeddings-v5-omni-nano -> has_parameter_count -> 1.04B
+[4] jina-embeddings-v5-omni-small scores 53.93 on average across modalities.
+     jina-embeddings-v5-omni-small -> achieves_score -> 53.93
+[5] jina-embeddings-v5-omni-small uses 5.7x fewer parameters than LCO-7B.
+     jina-embeddings-v5-omni-small -> compares_to -> LCO-7B (5.7x fewer params)
+[6] jina-embeddings-v5-omni-nano outperforms LanguageBind by +8.9 points.
+     jina-embeddings-v5-omni-nano -> outperforms -> LanguageBind (+8.9 points)
+[7] Vision encoders are based on Qwen3.5 adapted from SigLIP2.
+     jina-embeddings-v5-omni -> uses_vision_encoder -> Qwen3.5 (SigLIP2)
+[8] Audio encoders are based on Qwen2.5-Omni adapted from Whisper-large-v3.
+     jina-embeddings-v5-omni -> uses_audio_encoder -> Qwen2.5-Omni (Whisper-large-v3)
+[9] Only 0.35% of total weights are trained in jina-embeddings-v5-omni.
+     jina-embeddings-v5-omni -> has_trainable_weight_percentage -> 0.35%
+[10] jina-embeddings-v5-omni-small has 1024 embedding dimensions.
+     jina-embeddings-v5-omni-small -> has_embedding_dimension -> 1024
+[11] jina-embeddings-v5-omni-nano has 768 embedding dimensions.
+     jina-embeddings-v5-omni-nano -> has_embedding_dimension -> 768
+[12] jina-embeddings-v5-omni models are licensed under CC BY-NC 4.0.
+     jina-embeddings-v5-omni -> has_license -> CC BY-NC 4.0
+[13] jina-embeddings-v5-omni-small supports a max sequence length of 32768 tokens.
+     jina-embeddings-v5-omni-small -> has_max_sequence_length -> 32768 tokens
+[14] Video is handled as a sequence of visual frames in jina-embeddings-v5-omni.
+     jina-embeddings-v5-omni -> handles_video_as -> sequence of visual frames
+[15] Florian Hönicke is the author of the arXiv paper introducing jina-embeddings-v5-omni.
+     Florian Hönicke -> authored -> arXiv paper 2605.08384
+[16] jina-embeddings-v5-omni-small was published on 12 May 2026.
+     jina-embeddings-v5-omni -> published_date -> 2026-05-12
+[17] jina-embeddings-v5-omni-small scores 67.0 on text modality tasks.
+     jina-embeddings-v5-omni-small -> text_modality_score -> 67.0
+[18] jina-embeddings-v5-omni-small scores 84.57 on image clustering.
+     jina-embeddings-v5-omni-small -> image_clustering_score -> 84.57
+[19] jina-embeddings-v5-omni-nano uses EuroBERT-210m as its base text model.
+     jina-embeddings-v5-omni-nano -> base_text_model -> EuroBERT-210m
+[20] jina-embeddings-v5-omni-small supports Matryoshka dimensions of 32 to 1024.
+     jina-embeddings-v5-omni-small -> matryoshka_dimensions -> 32, 64, 128, 256, 512, 768, 1024
+[21] jina-embeddings-v5-omni-small scores 55.89 on audio classification tasks.
+     jina-embeddings-v5-omni-small -> achieves_score -> 55.89 on audio classification
+[22] jina-embeddings-v5-omni-small scores 79.08 on document retrieval with 0.92B active parameters.
+     jina-embeddings-v5-omni-small -> achieves_score -> 79.08 on document retrieval
+[23] jina-embeddings-v5-omni-small scores 41.20 on video modality benchmarks.
+     jina-embeddings-v5-omni-small -> achieves_score -> 41.20 on video
+
+##### B_schema_only unique facts (n=22) #####
+[1] Florian Hönicke is the author of the arXiv paper on jina-embeddings-v5-omni.
+     Florian Hönicke -> authored_article -> jina-embeddings-v5-omni research paper
+[2] jina-embeddings-v5-omni was published on May 12, 2026.
+     jina-embeddings-v5-omni -> published_date -> 2026-05-12
+[3] jina-embeddings-v5-omni-small has approximately 1.56B parameters.
+     jina-embeddings-v5-omni-small -> parameter_count -> 1.56B
+[4] jina-embeddings-v5-omni-nano has approximately 1.04B parameters.
+     jina-embeddings-v5-omni-nano -> parameter_count -> 1.04B
+[5] jina-embeddings-v5-omni-small scores 53.93 on average across four modalities.
+     jina-embeddings-v5-omni-small -> performance_score -> 53.93
+[6] LCO-7B has 8.93B parameters.
+     LCO-7B -> parameter_count -> 8.93B
+[7] jina-embeddings-v5-omni-small uses Qwen3.5 vision encoders.
+     jina-embeddings-v5-omni-small -> uses_component -> Qwen3.5 vision encoders
+[8] jina-embeddings-v5-omni-small uses Whisper-large-v3 audio encoders.
+     jina-embeddings-v5-omni-small -> uses_component -> Whisper-large-v3
+[9] Only 0.35% of total weights are trained in jina-embeddings-v5-omni.
+     jina-embeddings-v5-omni -> trainable_weight_percentage -> 0.35%
+[10] jina-embeddings-v5-omni-small has a license of CC BY-NC 4.0.
+     jina-embeddings-v5-omni-small -> license -> CC BY-NC 4.0
+[11] jina-embeddings-v5-omni-small supports Matryoshka dimensions of 32, 64, 128, 256, 512, 768, and 1024.
+     jina-embeddings-v5-omni-small -> supports_dimension -> 32, 64, 128, 256, 512, 768, 1024
+[12] jina-embeddings-v5-omni-small matches LCO-7B performance with 5.7x fewer parameters.
+     jina-embeddings-v5-omni-small -> matches_performance_of -> LCO-7B
+[13] jina-embeddings-v5-omni-nano outperforms LanguageBind by 8.9 points.
+     jina-embeddings-v5-omni-nano -> outperforms -> LanguageBind
+[14] jina-embeddings-v5-omni-small achieves a text score of 67.0 on MMTEB.
+     jina-embeddings-v5-omni-small -> scores_on -> MMTEB
+[15] jina-embeddings-v5-omni-small achieves an image clustering score of 84.57.
+     jina-embeddings-v5-omni-small -> scores_on -> Image Clustering
+[16] jina-embeddings-v5-omni-nano has 768 embedding dimensions.
+     jina-embeddings-v5-omni-nano -> has_embedding_dimension -> 768
+[17] jina-embeddings-v5-omni supports Matryoshka dimension truncation.
+     jina-embeddings-v5-omni-small -> supports -> Matryoshka dimension truncation
+[18] Florian Hönicke is the author of the jina-embeddings-v5-omni paper on arXiv.
+     Florian Hönicke -> authored_paper -> arXiv:2605.08384
+[19] jina-embeddings-v5-omni-nano scores 70.05 on document retrieval.
+     jina-embeddings-v5-omni-nano -> achieved_score -> 70.05
+[20] jina-embeddings-v5-omni-nano uses SigLIP2 Base vision encoder.
+     jina-embeddings-v5-omni-nano -> uses_vision_encoder -> SigLIP2 Base
+[21] jina-embeddings-v5-text-small is based on Qwen3-0.6B.
+     jina-embeddings-v5-text-small -> is_based_on -> Qwen3-0.6B
+[22] jina-embeddings-v5-text-nano is based on EuroBERT-210m.
+     jina-embeddings-v5-text-nano -> is_based_on -> EuroBERT-210m
+
+##### C_hybrid unique facts (n=19) #####
+[1] Florian Hönicke is the author of the jina-embeddings-v5-omni paper on arXiv.
+     Florian Hönicke -> authored_paper -> arXiv paper 2605.08384
+[2] Jina AI released jina-embeddings-v5-omni on May 12, 2026.
+     jina-embeddings-v5-omni -> release_date -> 2026-05-12
+[3] jina-embeddings-v5-omni-small has approximately 1.57 billion total parameters.
+     jina-embeddings-v5-omni-small -> parameter_count -> 1.57B
+[4] jina-embeddings-v5-omni-nano has approximately 0.95 billion total parameters.
+     jina-embeddings-v5-omni-nano -> parameter_count -> 0.95B
+[5] Only 0.35% of the model weights are trainable in the jina-embeddings-v5-omni architecture.
+     jina-embeddings-v5-omni -> trainable_weight_percentage -> 0.35%
+[6] jina-embeddings-v5-omni-small achieves an average score of 53.93 across four modalities.
+     jina-embeddings-v5-omni-small -> performance_score -> 53.93
+[7] jina-embeddings-v5-omni-small uses Qwen3.5 vision encoders adapted from SigLIP2.
+     jina-embeddings-v5-omni-small -> vision_encoder_type -> Qwen3.5 (adapted from SigLIP2)
+[8] jina-embeddings-v5-omni-small uses Whisper-large-v3 as its audio encoder.
+     jina-embeddings-v5-omni-small -> audio_encoder_type -> Whisper-large-v3
+[9] jina-embeddings-v5-omni-small achieves a video score of 41.20.
+     jina-embeddings-v5-omni-small -> video_modality_score -> 41.20
+[10] jina-embeddings-v5-omni-nano uses EuroBERT-210m as its base text model.
+     jina-embeddings-v5-omni-nano -> base_text_model -> EuroBERT-210m
+[11] jina-embeddings-v5-omni-small is licensed under CC BY-NC 4.0.
+     jina-embeddings-v5-omni-small -> license -> CC BY-NC 4.0
+[12] jina-embeddings-v5-omni-small supports Matryoshka dimensions down to 32.
+     jina-embeddings-v5-omni-small -> supported_dimensions -> 32 to 1024
+[13] jina-embeddings-v5-omni-small supports a maximum sequence length of 32768 tokens.
+     jina-embeddings-v5-omni-small -> max_sequence_length -> 32768 tokens
+[14] jina-embeddings-v5-omni-small outperforms LCO-3B in document retrieval with fewer parameters.
+     jina-embeddings-v5-omni-small -> outperforms_baseline -> LCO-3B
+[15] jina-embeddings-v5-omni-small outperforms LanguageBind by 8.9 points on image tasks.
+     jina-embeddings-v5-omni-nano -> outperforms_model_by -> +8.9 points vs LanguageBind
+[16] Elasticsearch supports jina-embeddings-v5-omni via Elastic Inference Service.
+     Elasticsearch -> supports_model_via -> Elastic Inference Service
+[17] jina-embeddings-v5-omni-small achieves an image clustering score of 84.57.
+     jina-embeddings-v5-omni-small -> achieves_score_on_task -> 84.57 (image clustering)
+[18] jina-embeddings-v5-text-small is based on Qwen3-0.6B.
+     jina-embeddings-v5-text-small -> is_based_on -> Qwen3-0.6B
+[19] LCO-7B has 8.93 billion parameters.
+     LCO-7B -> has_parameter_count -> 8.93 billion
+
+wrote prompt_eval.json

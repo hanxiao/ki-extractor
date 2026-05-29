@@ -1,0 +1,26 @@
+{
+  "A_prose": {
+    "n_unique": 23,
+    "total": 45,
+    "ground": 0.565,
+    "specificity": 0.913,
+    "pred_div": 0.783,
+    "schema_valid": true
+  },
+  "B_schema_only": {
+    "n_unique": 22,
+    "total": 45,
+    "ground": 0.5,
+    "specificity": 0.955,
+    "pred_div": 0.773,
+    "schema_valid": true
+  },
+  "C_hybrid": {
+    "n_unique": 19,
+    "total": 45,
+    "ground": 0.421,
+    "specificity": 1.0,
+    "pred_div": 0.947,
+    "schema_valid": true
+  }
+}
