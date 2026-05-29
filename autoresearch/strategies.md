@@ -115,6 +115,32 @@ Two findings, both contradicting/refining the prior framing:
 
 So MTP is essential and Q3+MTP stands, now mechanistically understood.
 
+### Spec-decode internals measured (Q3 + MTP n3, p-min 0.1)
+
+From llama-server `timings` + `draft-mtp` stats on one round:
+- decode 76.2 t/s, predicted_n 2802 in ~799 verify passes -> **3.5 tokens/pass**.
+- draft_n 2397, draft_n_accepted 2005 -> **token acceptance 83.6%** (draft-round
+  level 735/799 = 92%).
+
+The MoE penalty, quantified: pure autoregressive = 1 tok/pass @ 54 t/s; MTP =
+3.5 tok/pass @ 76 t/s. So MTP delivers 3.5x the tokens/pass but only 1.4x the
+throughput -> each verify pass costs ~2.5x a normal pass (it loads the expert
+union of the 3 drafted positions). That ~2.5x expert-union cost is the ceiling,
+and it lives in the 35B target, not the draft.
+
+Implications for "would a better draft / jump-forward help?":
+- **Better draft: ~+10% ceiling.** At n=3, lifting acceptance 84% -> ~100% raises
+  tokens/pass 3.5 -> ~3.85 (verify cost unchanged) ≈ +10% best case. Needs an
+  EAGLE-3-class trained head (unsupported in llama.cpp) and the Q3 hidden-state
+  shift fights it. Low ROI.
+- **Jump-forward: redundant.** The 84% accepted tokens already include the
+  grammar-forced structure; the 16% rejected are high-entropy fact *values* that
+  jump-forward also can't force. So its benefit is a subset of MTP's. Plus it's
+  not in llama.cpp.
+- The only lever that would actually move the ceiling is cutting the per-verify
+  expert-union cost (expert prefetch/caching across drafted positions, à la
+  MoE-SpeQ / Utility-Driven SD) — a target-model/kernel change, not a config.
+
 ## SEARCH CONVERGED (rounds 1+2, ~31 experiments)
 
 Quality-safe decode-rate levers are exhausted within the llama.cpp+MTP stack:
