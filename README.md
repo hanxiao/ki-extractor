@@ -65,6 +65,12 @@ hf_hub_download('unsloth/Qwen3.6-35B-A3B-MTP-GGUF', \
 docker compose up -d --build
 ```
 
+### Apple Silicon (Mac, Metal)
+
+No NVIDIA GPU? Run natively on an Apple Silicon Mac with `llama.cpp` on Metal (no Docker), with an
+optional faster MLX backend. See [`docs/MAC.md`](docs/MAC.md); the launcher is
+[`scripts/mac-run.sh`](scripts/mac-run.sh).
+
 ## Configuration
 
 llama-server flags live in `docker-compose.yml`. Key ones:

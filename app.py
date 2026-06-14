@@ -15,6 +15,9 @@ app = FastAPI()
 
 LLAMA_URL = os.environ.get("LLAMA_URL", "http://localhost:8080")
 JINA_KEY = os.environ.get("JINA_API_KEY", "")
+# Model label sent on /v1/chat/completions. llama.cpp ignores it; mlx_lm.server matches it
+# against the loaded model, so the Mac MLX backend pins it to the model path (see scripts/mac-run.sh).
+MODEL_NAME = os.environ.get("MODEL_NAME", "qwen3.6")
 CTX_SIZE = 16384
 # The 16384-token ctx must hold the whole request (prompt + doc) AND the output
 # budget (max_tokens=8192). So the input side must stay <= ~8192 tokens. With the
@@ -342,7 +345,7 @@ async def stream_single_extraction(
     doc_tokens_est = len(body_text) // 4
 
     payload = {
-        "model": "qwen3.6",
+        "model": MODEL_NAME,
         "messages": [{"role": "user", "content": full_prompt}],
         "max_tokens": 8192,
         "stream": True,
